@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { Button } from "../components/Button";
 
-
 const skills = [
   "HTML", // Frontend Development
   "CSS",
@@ -30,8 +29,6 @@ const skills = [
   "Illustrator",
   "After Effects",
 ];
-
-
 
 export const Hero = () => {
   return (
@@ -160,16 +157,19 @@ export const Hero = () => {
                 {/* BADGE */}
 
                 {/* Video */}
-                
+
                 <video
-                  src="/creatives/Art1.mp4"
-                  onContextMenu={e => e.preventDefault()}
+                  src="/creatives/pfp1.mp4"
+                  onContextMenu={(e) => e.preventDefault()}
                   className="z-10 absolute inset-0 w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-500 hover:opacity-100"
                   muted
                   loop
                   playsInline
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => e.currentTarget.pause()}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.currentTime = 0; 
+                    e.currentTarget.play(); 
+                  }}
+                  onMouseLeave={(e) => e.currentTarget.pause()} 
                 />
 
                 <div className="z-10 absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float">

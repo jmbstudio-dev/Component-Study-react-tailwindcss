@@ -1,17 +1,17 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowBigLeft, ArrowLeft, ArrowUp, ArrowUpRight, Github, Link2, PinIcon } from "lucide-react";
 import { Button } from "../components/Button";
 
 const projects = [
-  {
-    title: "Simple Hero Section",
-    description: "AAAAA",
-    image: "/projects/project4.png",
-    tags: ["Figma", "React", "Tailwind CSS", "Vercel", "GitHub"],
-    link: "#",
-    github: "https://github.com/jmbstudio-dev",
-    isLinkAvail: true, //availability
-    isGithubAvail: true,
-  },
+  // {
+  //   title: "Simple Hero Section",
+  //   description: "AAAAA",
+  //   image: "/projects/project4.png",
+  //   tags: ["Figma", "React", "Tailwind CSS", "Vercel", "GitHub"],
+  //   link: "#",
+  //   github: "https://github.com/jmbstudio-dev",
+  //   isLinkAvail: true, //availability
+  //   isGithubAvail: true,
+  // },
   {
     title: "Design and Development of RWMS",
     description:
@@ -68,8 +68,8 @@ export const Projects = () => {
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animate-delay-200">
-            A showcase of my recent work, from making Iot projects, graphics designs to web
-            applications.
+            A showcase of my recent work, from making Iot projects, graphics
+            designs to web applications.
           </p>
         </div>
         {/* PROJECT GRID */}
@@ -91,21 +91,21 @@ export const Projects = () => {
 
                 {/* LINKS */}
 
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex items-baseline-last justify-end p-4 gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
                   {project.isLinkAvail && (
                     <a
                       href={project.link}
                       target="_blank"
-                      className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="p-3 rounded-lg glass hover:bg-primary hover:text-primary-foreground transition-all"
                     >
-                      <ArrowUpRight className="w-5 h-5" />
+                      <Link2 className="w-5 h-5" />
                     </a>
                   )}
                   {project.isGithubAvail && (
                     <a
                       href={project.github}
                       target="_blank"
-                      className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="p-3 rounded-lg glass hover:bg-primary hover:text-primary-foreground transition-all"
                     >
                       <Github className="w-5 h-5" />
                     </a>
@@ -119,12 +119,14 @@ export const Projects = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <ArrowUpRight
-                    className="w-5 h-5 
+                  {/* <div>
+                    {" "}
+                    <ArrowBigLeft
+                      className="w-5 h-5 
                   text-muted-foreground group-hover:text-primary
-                   group-hover:translate-x-1 
-                   group-hover:-translate-y-1 transition-all"
-                  />
+                   group-hover:-translate-x-1 transition-all"
+                    />
+                  </div> */}
                 </div>
                 <p className="text-muted-foreground text-sm ">
                   {project.description}
