@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Button } from "../components/Button";
 
+
 const skills = [
   "HTML", // Frontend Development
   "CSS",
@@ -30,9 +31,14 @@ const skills = [
   "After Effects",
 ];
 
+
+
 export const Hero = () => {
   return (
-    <section className=" relative min-h-screen flex items-center overflow-hidden">
+    <section
+      id="home"
+      className=" relative min-h-screen flex items-center overflow-hidden"
+    >
       {/* BACKGROUND */}
       <div className=" absolute inset-0">
         <img
@@ -40,8 +46,10 @@ export const Hero = () => {
           alt="Hero IMG Background"
           className=" w-full h-full object-cover opacity-40"
         />
-        <div className=" absolute inset-0 bg-linear-to-b 
-        from-background/20 via-black/20 to-background"></div>
+        <div
+          className=" absolute inset-0 bg-linear-to-b 
+        from-background/20 via-black/20 to-background"
+        ></div>
       </div>
 
       {/* PARTICLES */}
@@ -80,11 +88,6 @@ export const Hero = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight animate-fade-in animate-delay-100">
                 JOHN MELVIN{" "}
                 <span className="text-primary glow-text">BURGOS</span>
-                {/* , refined
-                by <br />{" "}
-                <span className="font-serif italic font-normal text-white">
-                  Purpose
-                </span> */}
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animate-delay-200">
@@ -113,7 +116,6 @@ export const Hero = () => {
             {/* SOCIALS */}
 
             <div className="flex items-center gap-4 animate-fade-in animate-delay-400">
-              {/* <span className="text-muted-foreground text-sm ">SOCIALS:</span> */}
               {[
                 {
                   icon: Github,
@@ -125,21 +127,16 @@ export const Hero = () => {
                   href: "https://www.linkedin.com/in/jviiinburgos/",
                   target: "_blank",
                 },
-                {
-                  icon: Instagram,
-                  href: "https://www.instagram.com/j.viiiin/",
-                  target: "_blank",
-                },
+                // {
+                //   icon: Instagram,
+                //   href: "https://www.instagram.com/j.viiiin/",
+                //   target: "_blank",
+                // },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
-                  target={social.target}
-                  rel={
-                    social.target === "_blank"
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  target="_blank"
                   className="p-2 rounded-lg glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
                   {<social.icon className="w-5 h-5" />}
@@ -161,6 +158,19 @@ export const Hero = () => {
                   className="relative z-10 w-full aspect-4/4 object-cover rounded-lg "
                 />
                 {/* BADGE */}
+
+                {/* Video */}
+                
+                <video
+                  src="/creatives/Art1.mp4"
+                  onContextMenu={e => e.preventDefault()}
+                  className="z-10 absolute inset-0 w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-500 hover:opacity-100"
+                  muted
+                  loop
+                  playsInline
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => e.currentTarget.pause()}
+                />
 
                 <div className="z-10 absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">

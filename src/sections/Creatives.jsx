@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const creatives = [
   {
-    image: "/profile-photo.png",
+    image: "/creatives/Art1.png",
     title: "Portrait",
     role: "Aleziar.viiiin",
     link: "#",
@@ -15,13 +15,13 @@ const creatives = [
     link: "#",
   },
   {
-    image: "/creatives/Art2.png",
+    image: "/creatives/Art1.png",
     title: "Commission",
     role: "Aleziar.viiiin",
     link: "#",
   },
   {
-    image: "/creatives/Art3.png",
+    image: "/creatives/Art1.png",
     title: "Commission",
     role: "Aleziar.viiiin",
     link: "#",

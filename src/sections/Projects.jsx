@@ -2,37 +2,48 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { Button } from "../components/Button";
 
 const projects = [
-   {
+  {
     title: "Simple Hero Section",
     description: "AAAAA",
     image: "/projects/project4.png",
-    tags: ["Figma", "React", "Tailwind CSS", "Vercel", "GitHub",],
+    tags: ["Figma", "React", "Tailwind CSS", "Vercel", "GitHub"],
     link: "#",
-    github: "#",
+    github: "https://github.com/jmbstudio-dev",
+    isLinkAvail: true, //availability
+    isGithubAvail: true,
   },
   {
-    title: "RWMS",
-    description: "AAAAA",
-    image: "/projects/project3.png",
-    tags: ["HTML", "CSS", "JavaScript", "Firebase", "Arduino",],
-    link: "#",
-    github: "#",
+    title: "Design and Development of RWMS",
+    description:
+      "This study focuses on the Residential Wastewater Management System (RWMS), which integrates filtration and real-time water monitoring. I handled the web development and IoT connection, allowing real-time data visualization and system control for improved water quality management.",
+    image: "/projects/project-rwms-1.png",
+    tags: ["HTML", "CSS", "JavaScript", "Firebase", "Arduino"],
+    link: "https://www.semanticscholar.org/paper/Design-and-Development-of-RWMS%3A-A-Residential-with-Amoto-Burgos/02e4ceee0e3869b381a13f52394555af9370db6a",
+    github: "https://github.com/jmbstudio-dev/RWMS-website",
+    isLinkAvail: true, //availability
+    isGithubAvail: true,
   },
   {
     title: "APARREL ARRAY",
-    description: "AAAAA",
-    image: "/projects/project2.png",
-    tags: ["Figma", "Illustrator", "Davinci"],
+    description:
+      "Apparel Array is a retail company I collaborated with to enhance its visual identity and overall branding. The project involved a comprehensive approach to digital presence and creative direction.",
+    image: "/projects/project-1.png",
+    tags: ["Figma", "Illustrator", "Affter effects", "Davinci"],
     link: "#",
     github: "#",
+    isLinkAvail: true, //availability
+    isGithubAvail: false,
   },
   {
     title: "BRIDGE BLUE PRINT",
-    description: "AAAAA",
-    image: "/projects/project1.png",
+    description:
+      "Bridge & Blueprint is a strategic marketing agency that helps brands connect with their audiences. I designed their logo, chose their color palette, and selected fonts to create a cohesive and impactful visual identity.",
+    image: "/projects/project-2.png",
     tags: ["Illustrator", "Photoshop", "Figma"],
     link: "#",
     github: "#",
+    isLinkAvail: true, //availability
+    isGithubAvail: false,
   },
 ];
 
@@ -40,8 +51,8 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
       {/* BACKGROUND */}
-   <div className="absolute top-25 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-    
+      <div className="absolute top-25 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
       <div className="container mx-auto px-6 relative z-10">
         {/* TOP */}
 
@@ -50,14 +61,15 @@ export const Projects = () => {
             Featured Works
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-foreground mt-4 mb-6 animate-fade-in animate-delay-100">
-            Projects that{" "}
+            Projects that aims{" "}
             <span className="font-serif italic font-normal text-white ">
               {" "}
-              make an impact.
+              to make an impact.
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animate-delay-200">
-            A showcase of my recent work, from making graphics to web applications.
+            A showcase of my recent work, from making Iot projects, graphics designs to web
+            applications.
           </p>
         </div>
         {/* PROJECT GRID */}
@@ -80,18 +92,24 @@ export const Projects = () => {
                 {/* LINKS */}
 
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.link}
-                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.link}
-                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
+                  {project.isLinkAvail && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
+                  )}
+                  {project.isGithubAvail && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </div>
 

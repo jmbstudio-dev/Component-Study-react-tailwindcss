@@ -8,7 +8,6 @@ import { Creatives } from "@/sections/Creatives";
 import { Testimonials } from "@/sections/Testimonials";
 import { Footer } from "./layout/Footer";
 
-
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden ">

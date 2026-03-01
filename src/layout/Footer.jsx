@@ -3,14 +3,14 @@ import { Github, Linkedin, Instagram, Heart } from "lucide-react";
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  // { icon: Instagram, href: "#", label: "Instagram" },
 ];
 
 const footerLinks = [
+  { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
-  { href: "#contacts", label: "Contacts" },
 ];
 
 export const Footer = () => {
