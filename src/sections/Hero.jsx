@@ -3,6 +3,7 @@ import {
   ChevronDown,
   Download,
   Github,
+  Globe2Icon,
   Instagram,
   Linkedin,
 } from "lucide-react";
@@ -98,8 +99,8 @@ export const Hero = () => {
             {/* CTA */}
 
             <div className="flex flex-wrap gap-4 animate-fade-in animate-delay-300">
-              <Button size="sm">
-                OPEN TO WORK <ArrowRight className="w-5 h-5" />
+              <Button size="sm" className=" pointer-events-none">
+                <Globe2Icon className="w-5 h-5" /> PHILIPPINES
               </Button>
               <button className="relative bg-transparent border border-primary transition-all duration-500 px-3 py-2 text-sm rounded-lg overflow-visible animated-border">
                 <a href="/RESUME_BURGOS.pdf" target="_blank">
