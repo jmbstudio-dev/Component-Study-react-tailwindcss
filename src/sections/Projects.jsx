@@ -1,4 +1,4 @@
-import { ArrowBigLeft, ArrowLeft, ArrowUp, ArrowUpRight, Github, Link2, PinIcon } from "lucide-react";
+import { ArrowBigUp, Github, Link2 } from "lucide-react";
 import { Button } from "../components/Button";
 
 const projects = [
@@ -24,7 +24,7 @@ const projects = [
     isGithubAvail: true,
   },
   {
-    title: "APARREL ARRAY",
+    title: "Aparrel Array",
     description:
       "Apparel Array is a retail company I collaborated with to enhance its visual identity and overall branding. The project involved a comprehensive approach to digital presence and creative direction.",
     image: "/projects/project-1.png",
@@ -35,7 +35,7 @@ const projects = [
     isGithubAvail: false,
   },
   {
-    title: "BRIDGE BLUE PRINT",
+    title: "Bridge Blue Print",
     description:
       "Bridge & Blueprint is a strategic marketing agency that helps brands connect with their audiences. I designed their logo, chose their color palette, and selected fonts to create a cohesive and impactful visual identity.",
     image: "/projects/project-2.png",
@@ -53,7 +53,7 @@ export const Projects = () => {
       {/* BACKGROUND */}
       <div className="absolute top-25 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-8 relative z-10">
         {/* TOP */}
 
         <div className="text-center mx-auto max-w-3xl mb-16">
@@ -72,12 +72,15 @@ export const Projects = () => {
             designs to web applications.
           </p>
         </div>
-        {/* PROJECT GRID */}
-        <div className="grid md:grid-cols-2 gap-8">
+
+       
+
+        {/* PROJECT GRID2 */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
+              className="group glass rounded-2xl overflow-hidden animate-fade-in flex flex-col h-full"
               style={{ animationDelay: `${(idx + 1) * 100}ms` }}
             >
               {/* IMG */}
@@ -90,7 +93,6 @@ export const Projects = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60" />
 
                 {/* LINKS */}
-
                 <div className="absolute inset-0 flex items-baseline-last justify-end p-4 gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
                   {project.isLinkAvail && (
                     <a
@@ -114,30 +116,24 @@ export const Projects = () => {
               </div>
 
               {/* CONTENT */}
-              <div className=" p-6 space-y-4">
-                <div className="flex items-start justify-between ">
+              <div className="p-6 flex flex-col flex-1 space-y-4">
+                <div className="flex items-start justify-between">
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  {/* <div>
-                    {" "}
-                    <ArrowBigLeft
-                      className="w-5 h-5 
-                  text-muted-foreground group-hover:text-primary
-                   group-hover:-translate-x-1 transition-all"
-                    />
-                  </div> */}
                 </div>
-                <p className="text-muted-foreground text-sm ">
+
+                <p className="text-muted-foreground text-sm mt-2 ">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 ">
+                {/* TAGS */}
+                <div className="flex flex-wrap gap-2 text-sm mt-auto pt-2">
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="px-4 py-1 rounded-lg font-medium border text-muted-foreground hover:text-primary
-                       hover:border-primary/50 border-border/50 bg-surface trasition-all duration-300"
+                      className="text-xs px-4 py-1 rounded-lg font-medium border text-muted-foreground hover:text-primary
+                       hover:border-primary/50 border-border/50 bg-surface transition-all duration-300"
                     >
                       {tag}
                     </span>
@@ -149,7 +145,6 @@ export const Projects = () => {
         </div>
 
         {/* CTA */}
-
         {/* <div>
           <a
             href="#"
@@ -162,7 +157,7 @@ export const Projects = () => {
             >
               <span className="uppercase relative z-10 flex items-center justify-center gap-2 transition-all duration-500">
                 View all
-                <ArrowUpRight className="w-5 h-5" />
+                <ArrowBigUp className="w-5 h-5" />
               </span>
             </div>
           </a>

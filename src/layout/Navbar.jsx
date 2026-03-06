@@ -34,7 +34,7 @@ export const Navbar = () => {
           href="#"
           className="text-xl font-bold tracking-tighter hover:text-primary"
         >
-          {/* <img src="/Logo.png" alt="Simple Initials Logo" className="w-12 h-12" /> */}
+          
           JM
           <span className="text-primary">B</span>
         </a>

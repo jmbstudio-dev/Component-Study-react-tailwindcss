@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   ChevronDown,
   Download,
   Github,
@@ -14,28 +13,25 @@ const skills = [
   "CSS",
   "JavaScript",
   "React",
+  "Tailwind",
 
   "Node.js", // Backend & Programming Languages
-  "PHP",
   "Python",
   "C++",
 
   "SQL", // Databases & Cloud
   "MongoDB",
   "Firebase",
-  "AWS",
 
   "Figma", // Design & Multimedia
-  "Photoshop",
-  "Illustrator",
-  "After Effects",
+  "Adobe suite",
 ];
 
 export const Hero = () => {
   return (
     <section
       id="home"
-      className=" relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* BACKGROUND */}
       <div className=" absolute inset-0">
@@ -58,6 +54,7 @@ export const Hero = () => {
             className="absolute w-1 h-1 rounded-full opacity-50"
             style={{
               backgroundColor: "#DF3635",
+              boxShadow: "0 0 8px #DF3635",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
@@ -68,8 +65,8 @@ export const Hero = () => {
       </div>
 
       {/* CONTENTS */}
-      <div className="container mx-auto px-6 pt-32 pb-20 relative">
-        <div className="grid md:grid-cols-2 gap-12">
+      <div className="container mx-auto px-8 pt-32 pb-20 relative">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* LEFT*/}
 
           <div className="space-y-8">
@@ -82,7 +79,7 @@ export const Hero = () => {
 
             {/* Headline */}
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight animate-fade-in animate-delay-100">
                 JOHN MELVIN{" "}
                 <span className="text-primary glow-text">BURGOS</span>
@@ -103,7 +100,7 @@ export const Hero = () => {
                 <Globe2Icon className="w-5 h-5" /> PHILIPPINES
               </Button>
               <button className="relative bg-transparent border border-primary transition-all duration-500 px-3 py-2 text-sm rounded-lg overflow-visible animated-border">
-                <a href="/RESUME_BURGOS.pdf" target="_blank">
+                <a href="/CV_JMBURGOS.pdf" target="_blank">
                   <span className="relative z-10 flex items-center justify-center gap-2 text-primary">
                     DOWNLOAD CV <Download className="w-5 h-5" />
                   </span>
@@ -125,11 +122,6 @@ export const Hero = () => {
                   href: "https://www.linkedin.com/in/jviiinburgos/",
                   target: "_blank",
                 },
-                // {
-                //   icon: Instagram,
-                //   href: "https://www.instagram.com/j.viiiin/",
-                //   target: "_blank",
-                // },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -153,12 +145,10 @@ export const Hero = () => {
                 <img
                   src="/pfp1.png"
                   alt="John Melvin Burgos"
-                  className="relative z-10 w-full aspect-4/4 object-cover rounded-lg "
+                  className="relative z-10 w-full aspect-square object-cover rounded-lg "
                 />
-                {/* BADGE */}
 
                 {/* Video */}
-
                 <video
                   src="/creatives/pfp1.mp4"
                   onContextMenu={(e) => e.preventDefault()}
@@ -167,16 +157,17 @@ export const Hero = () => {
                   loop
                   playsInline
                   onMouseEnter={(e) => {
-                    e.currentTarget.currentTime = 0; 
-                    e.currentTarget.play(); 
+                    e.currentTarget.currentTime = 0;
+                    e.currentTarget.play();
                   }}
-                  onMouseLeave={(e) => e.currentTarget.pause()} 
+                  onMouseLeave={(e) => e.currentTarget.pause()}
                 />
 
+                {/* BADGE */}
                 <div className="z-10 absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm font-medium">
+                    <span className="text-sm font-medium font-mono uppercase">
                       Available for Work
                     </span>
                   </div>
@@ -188,10 +179,6 @@ export const Hero = () => {
                 />
 
                 {/*  */}
-                {/* <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float animate-delay-500">
-                  <div className="text-2xl font-bold text-primary">+</div>
-                  <div className="text-xs text-muted-foreground">Years Exp.</div>
-                </div> */}
               </div>
             </div>
           </div>

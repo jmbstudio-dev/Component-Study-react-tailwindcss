@@ -54,7 +54,7 @@ export const Experience = () => {
     <section id="experience" className="py-32 relative overflow-hidden">
       {/* BACKGROUND */}
       <div className="absolute top-20 left-25 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-8 relative z-10">
         {/* HEADER TXT*/}
         <div className="max-w-3xl mb-16">
           <h1
@@ -139,7 +139,7 @@ export const Experience = () => {
           </div>
 
           {/* ITEMS 2 */}
-          {/* <div className="gap-8 grid grid-cols-2">
+          {/* <div className=" gap-12 grid md:grid-cols-1 mx-auto max-w-3xl">
             {experiences.map((exp, idx) => (
               <div
                 key={idx}
@@ -147,15 +147,11 @@ export const Experience = () => {
                 style={{ animationDelay: `${(idx + 1) * 150}ms` }}
               >
                
-                <div className="absolute left-0 md:left-1 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
-                  {exp.current && (
-                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
-                  )}
-                </div>
-
+           
                 <div className=" ">
                   <div
-                    className={`glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500`}
+                    className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 
+                    transition-all duration-500"
                   >
                     <span className="text-sm text-primary font-medium">
                       {exp.period}
@@ -167,7 +163,7 @@ export const Experience = () => {
                     </p>
 
                     <div
-                      className={`flex flex-wrap gap-2 mt-4 ${idx % 2 === 0 ? "md:justify-end" : ""}`}
+                      className="flex flex-wrap gap-2 mt-4"
                     >
                       {exp.technologies.map((tech, techIdx) => (
                         <span
@@ -183,6 +179,8 @@ export const Experience = () => {
               </div>
             ))}
           </div> */}
+
+    
         </div>
       </div>
     </section>

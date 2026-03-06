@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @theme {
-  --color-background: #121212;
-  --color-foreground: #f0f2f5;
+  --color-background: #121416;
+  --color-foreground: #ffffff;
 
   --color-card: #141a1f;
 
@@ -21,6 +36,12 @@
 
   --color-highlight: #f5a623;
   --color-surface: #1a2329;
+
+  --font-sans:
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @layer base {
@@ -35,11 +56,15 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-sans);
   }
 
   .font-serif {
-    font-family: "Playfair Display", serif;
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 }
 
@@ -175,4 +200,14 @@
       0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   } */
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }

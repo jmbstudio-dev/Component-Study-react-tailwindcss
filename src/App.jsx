@@ -5,8 +5,8 @@ import { Experience } from "@/sections/Experience";
 import { Hero } from "@/sections/Hero";
 import { Projects } from "@/sections/Projects";
 import { Creatives } from "@/sections/Creatives";
-import { Testimonials } from "@/sections/Testimonials";
-import { Footer } from "./layout/Footer";
+import { Footer } from "@/layout/Footer";
+import { Draft } from "./sections/Draft";
 
 function App() {
   return (
@@ -17,11 +17,11 @@ function App() {
         <About />
         <Projects />
         <Experience />
-        {/* <Creatives /> */}
-        {/* <Testimonials /> */}
         <Contacts />
-        <Footer />
+        {/* <Creatives /> */}
+        {/* <Draft /> */}
       </main>
+      <Footer />
     </div>
   );
 }

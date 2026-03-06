@@ -29,7 +29,7 @@ const highlights = [
 export const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
-      <div className=" container mx-auto px-6 relative z-10">
+      <div className=" container mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-1 gap-16 items-center">
           {/* <div className="grid lg:grid-cols-2 gap-16 items-center"> */}
           {/* LEFT */}
@@ -37,11 +37,11 @@ export const About = () => {
           {/* TOP */}
           <div className=" space-y-8 ">
             <div className=" animate-fade-in">
-              <span className="text-secondary-foreground font-medium tracking-wider uppercase">
+              <span className="text-secondary-foreground font-medium tracking-wider uppercase" >
                 About Me
               </span>
             </div>
-            <h2 className=" text-4xl md:text-5xt font-bold leading-tight animate-fade-in animate-delay-100 text-secondary-foreground">
+            <h2 className=" text-4xl md:text-5xl font-bold leading-tight animate-fade-in animate-delay-100 text-secondary-foreground">
               Building with Intention,
               <span className="font-serif italic font-normal text-white ">
                 {" "}
