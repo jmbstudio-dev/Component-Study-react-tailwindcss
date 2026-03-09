@@ -1,5 +1,5 @@
 import {
-  ChevronDown,
+  ArrowBigDownDash,
   Download,
   Github,
   Globe2Icon,
@@ -47,7 +47,6 @@ export const Hero = () => {
       </div>
 
       {/* PARTICLES */}
-
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
@@ -65,7 +64,7 @@ export const Hero = () => {
       </div>
 
       {/* CONTENTS */}
-      <div className="container mx-auto px-8 pt-32 pb-20 relative">
+      <div className="container max-w-7xl mx-auto px-8 pt-32 pb-20 relative">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* LEFT*/}
 
@@ -77,8 +76,7 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Headline */}
-
+            {/* HEADLINE */}
             <div className="space-y-2">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight animate-fade-in animate-delay-100">
                 JOHN MELVIN{" "}
@@ -119,7 +117,7 @@ export const Hero = () => {
                 },
                 {
                   icon: Linkedin,
-                  href: "https://www.linkedin.com/in/jviiinburgos/",
+                  href: "https://www.linkedin.com/in/johnmelvin-burgos",
                   target: "_blank",
                 },
               ].map((social, idx) => (
@@ -139,7 +137,6 @@ export const Hero = () => {
 
           <div className="relative animate-fade-in animated-delay-500 ">
             {/* Profile */}
-
             <div className=" relative max-w-md mx-auto">
               <div className=" relative">
                 <img
@@ -172,11 +169,6 @@ export const Hero = () => {
                     </span>
                   </div>
                 </div>
-
-                <div
-                  className="rounded-lg absolute inset-0 bg-linear-to-t 
-                from-card via-card/50 to-transparent opacity-60"
-                />
 
                 {/*  */}
               </div>
@@ -220,7 +212,7 @@ export const Hero = () => {
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
+          <ArrowBigDownDash className="w-6 h-6 animate-bounce" />
         </a>
       </div>
     </section>

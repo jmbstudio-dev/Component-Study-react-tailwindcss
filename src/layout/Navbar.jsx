@@ -34,13 +34,11 @@ export const Navbar = () => {
           href="#"
           className="text-xl font-bold tracking-tighter hover:text-primary"
         >
-          
           JM
           <span className="text-primary">B</span>
         </a>
 
         {/* DESKTOP NAV */}
-
         <div className="hidden md:flex items-center gap-1">
           <div className="glass rounded-lg px-2 py-1 flex items-center gap-1">
             {navLinks.map((link, index) => (
@@ -56,14 +54,11 @@ export const Navbar = () => {
         </div>
 
         {/* CTA */}
-
         <div className="hidden md:block">
           <a  href= "#contacts"><Button size="sm">Contact Me</Button></a>
-          
         </div>
 
         {/* MOBILE */}
-
         <button
           className="md:hidden p-2 text-foreground cursor-pointer"
           onClick={() => setMobileMenuOpen((prev) => !prev)}

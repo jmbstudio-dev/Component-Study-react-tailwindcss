@@ -1,53 +1,93 @@
+import { useState, useEffect, useRef } from "react";
 import { ArrowBigUp, Github, Link2 } from "lucide-react";
-import { Button } from "../components/Button";
 
 const projects = [
-  // {
-  //   title: "Simple Hero Section",
-  //   description: "AAAAA",
-  //   image: "/projects/project4.png",
-  //   tags: ["Figma", "React", "Tailwind CSS", "Vercel", "GitHub"],
-  //   link: "#",
-  //   github: "https://github.com/jmbstudio-dev",
-  //   isLinkAvail: true, //availability
-  //   isGithubAvail: true,
-  // },
   {
     title: "Design and Development of RWMS",
     description:
       "This study focuses on the Residential Wastewater Management System (RWMS), which integrates filtration and real-time water monitoring. I handled the web development and IoT connection, allowing real-time data visualization and system control for improved water quality management.",
-    image: "/projects/project-rwms-1.png",
+    images: [
+      "/projects/project-rwms-1.png",
+      "/projects/rwms-2.png",
+      "/projects/rwms-3.png",
+      "/projects/rwms-4.png",
+    ],
     tags: ["HTML", "CSS", "JavaScript", "Firebase", "Arduino"],
     link: "https://www.semanticscholar.org/paper/Design-and-Development-of-RWMS%3A-A-Residential-with-Amoto-Burgos/02e4ceee0e3869b381a13f52394555af9370db6a",
     github: "https://github.com/jmbstudio-dev/RWMS-website",
-    isLinkAvail: true, //availability
+    isLinkAvail: true,
     isGithubAvail: true,
   },
   {
-    title: "Aparrel Array",
+    title: "Apparel Array",
     description:
       "Apparel Array is a retail company I collaborated with to enhance its visual identity and overall branding. The project involved a comprehensive approach to digital presence and creative direction.",
-    image: "/projects/project-1.png",
-    tags: ["Figma", "Illustrator", "Affter effects", "Davinci"],
+    images: ["/projects/project-1.png"],
+    tags: ["Figma", "Illustrator", "After Effects", "Davinci"],
     link: "#",
     github: "#",
-    isLinkAvail: true, //availability
+    isLinkAvail: true,
     isGithubAvail: false,
   },
   {
     title: "Bridge Blue Print",
     description:
       "Bridge & Blueprint is a strategic marketing agency that helps brands connect with their audiences. I designed their logo, chose their color palette, and selected fonts to create a cohesive and impactful visual identity.",
-    image: "/projects/project-2.png",
+    images: ["/projects/project-2.png"],
     tags: ["Illustrator", "Photoshop", "Figma"],
     link: "#",
     github: "#",
-    isLinkAvail: true, //availability
+    isLinkAvail: true,
     isGithubAvail: false,
   },
 ];
 
 export const Projects = () => {
+  const [currentImages, setCurrentImages] = useState(projects.map(() => 0));
+  const [isHovered, setIsHovered] = useState(projects.map(() => false));
+  const autoSlideTimer = useRef(null);
+
+  // Auto-slide logic
+  useEffect(() => {
+    const startAutoSlide = () => {
+      if (autoSlideTimer.current) clearInterval(autoSlideTimer.current);
+      autoSlideTimer.current = setInterval(() => {
+        setCurrentImages((prev) =>
+          prev.map((imgIdx, i) =>
+            isHovered[i] ? imgIdx : (imgIdx + 1) % projects[i].images.length,
+          ),
+        );
+      }, 2000);
+    };
+
+    startAutoSlide();
+    return () => clearInterval(autoSlideTimer.current);
+  }, [isHovered]);
+
+  // Handle manual dot click
+  const handleDotClick = (projIdx, imgIdx) => {
+    setCurrentImages((prev) => {
+      const newArr = [...prev];
+      newArr[projIdx] = imgIdx;
+      return newArr;
+    });
+
+    // Pause auto-slide for 5 seconds on manual interaction
+    setIsHovered((prev) => {
+      const newHover = [...prev];
+      newHover[projIdx] = true;
+      return newHover;
+    });
+
+    setTimeout(() => {
+      setIsHovered((prev) => {
+        const newHover = [...prev];
+        newHover[projIdx] = false;
+        return newHover;
+      });
+    }, 3000);
+  };
+
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
       {/* BACKGROUND */}
@@ -55,45 +95,58 @@ export const Projects = () => {
 
       <div className="container mx-auto px-8 relative z-10">
         {/* TOP */}
-
         <div className="text-center mx-auto max-w-3xl mb-16">
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
             Featured Works
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-foreground mt-4 mb-6 animate-fade-in animate-delay-100">
-            Projects that aims{" "}
-            <span className="font-serif italic font-normal text-white ">
-              {" "}
+            Projects that aim{" "}
+            <span className="font-serif italic font-normal text-white">
               to make an impact.
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animate-delay-200">
-            A showcase of my recent work, from making Iot projects, graphics
+            A showcase of my recent work, from making IoT projects, graphics
             designs to web applications.
           </p>
         </div>
 
-       
-
-        {/* PROJECT GRID2 */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* PROJECT GRID */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, idx) => (
             <div
               key={idx}
               className="group glass rounded-2xl overflow-hidden animate-fade-in flex flex-col h-full"
               style={{ animationDelay: `${(idx + 1) * 100}ms` }}
             >
-              {/* IMG */}
-              <div className="relative overflow-hidden aspect-video">
+              {/* IMG Carousel */}
+              <div
+                className="relative overflow-hidden aspect-video"
+                onMouseEnter={() =>
+                  setIsHovered((prev) => {
+                    const newHover = [...prev];
+                    newHover[idx] = true;
+                    return newHover;
+                  })
+                }
+                onMouseLeave={() =>
+                  setIsHovered((prev) => {
+                    const newHover = [...prev];
+                    newHover[idx] = false;
+                    return newHover;
+                  })
+                }
+              >
                 <img
-                  src={project.image}
+                  src={project.images[currentImages[idx]]}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60" />
 
                 {/* LINKS */}
-                <div className="absolute inset-0 flex items-baseline-last justify-end p-4 gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex items-baseline-last justify-end p-4 gap-4 ">
+                {/* <div className="absolute inset-0 flex items-baseline-last justify-end p-4 gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300"> */}
                   {project.isLinkAvail && (
                     <a
                       href={project.link}
@@ -113,6 +166,23 @@ export const Projects = () => {
                     </a>
                   )}
                 </div>
+
+                {/* DOT INDICATORS */}
+                {project.images.length > 1 && (
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                    {project.images.map((_, dotIdx) => (
+                      <span
+                        key={dotIdx}
+                        onClick={() => handleDotClick(idx, dotIdx)}
+                        className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
+                          currentImages[idx] === dotIdx
+                            ? "bg-primary"
+                            : "bg-white/50"
+                        }`}
+                      ></span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* CONTENT */}
@@ -123,7 +193,7 @@ export const Projects = () => {
                   </h3>
                 </div>
 
-                <p className="text-muted-foreground text-sm mt-2 ">
+                <p className="text-muted-foreground text-sm mt-2">
                   {project.description}
                 </p>
 
@@ -143,25 +213,6 @@ export const Projects = () => {
             </div>
           ))}
         </div>
-
-        {/* CTA */}
-        {/* <div>
-          <a
-            href="#"
-            className="flex justify-center mt-12 animate-fade-in animate-delay-500"
-          >
-            <div
-              className="relative border text-muted-foreground hover:text-primary hover:border-primary/50 border-border
-             bg-transparent trasition-all duration-300 px-6 py-2 text-sm 
-            rounded-lg overflow-visible animated-border"
-            >
-              <span className="uppercase relative z-10 flex items-center justify-center gap-2 transition-all duration-500">
-                View all
-                <ArrowBigUp className="w-5 h-5" />
-              </span>
-            </div>
-          </a>
-        </div> */}
       </div>
     </section>
   );
