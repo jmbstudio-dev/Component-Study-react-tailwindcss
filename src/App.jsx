@@ -6,7 +6,7 @@ import { Hero } from "@/sections/Hero";
 import { Projects } from "@/sections/Projects";
 import { Creatives } from "@/sections/Creatives";
 import { Footer } from "@/layout/Footer";
-import { Draft } from "./sections/Draft";
+
 
 function App() {
   return (

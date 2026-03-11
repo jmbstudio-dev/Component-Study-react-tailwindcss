@@ -21,11 +21,11 @@ body {
 
   --color-card: #141a1f;
 
-  --color-primary: #df3635;
+  --color-primary:#9CC8FF;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #334155;
-  --color-secondary-foreground: #df3635;
+  --color-secondary-foreground: #9CC8FF;
 
   --color-muted: #252e37;
   --color-muted-foreground: #7a8491;
@@ -36,12 +36,6 @@ body {
 
   --color-highlight: #f5a623;
   --color-surface: #1a2329;
-
-  --font-sans:
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @layer base {
@@ -56,15 +50,25 @@ body {
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
+    font-family: "Space Mono", monospace;
   }
 
-  .font-serif {
-    font-family: var(--font-serif);
+  .font-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
   }
 
-  .font-mono {
-    font-family: var(--font-mono);
+  .font-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .font-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
   }
 }
 
@@ -191,9 +195,7 @@ body {
       color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
-  .group:hover .animated-border-path {
-    animation: animated-border 1.5s linear infinite;
-  }
+
 
   /* .line-glow {
     box-shadow:

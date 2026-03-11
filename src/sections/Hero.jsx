@@ -1,5 +1,7 @@
 import {
   ArrowBigDownDash,
+  ArrowDown,
+  ChevronDown,
   Download,
   Github,
   Globe2Icon,
@@ -23,6 +25,7 @@ const skills = [
   "MongoDB",
   "Firebase",
 
+  "Vercel",
   "Figma", // Design & Multimedia
   "Adobe suite",
 ];
@@ -52,8 +55,8 @@ export const Hero = () => {
           <div
             className="absolute w-1 h-1 rounded-full opacity-50"
             style={{
-              backgroundColor: "#DF3635",
-              boxShadow: "0 0 8px #DF3635",
+              backgroundColor: "var(--color-primary)",
+              // boxShadow: "0 0 8px var(--color-primary)",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
@@ -64,7 +67,7 @@ export const Hero = () => {
       </div>
 
       {/* CONTENTS */}
-      <div className="container max-w-7xl mx-auto px-8 pt-32 pb-20 relative">
+      <div className="container max-w-6xl mx-auto px-8 pt-32 pb-20 relative">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* LEFT*/}
 
@@ -83,9 +86,9 @@ export const Hero = () => {
                 <span className="text-primary glow-text">BURGOS</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animate-delay-200">
+              <p className="font-regular text-lg text-muted-foreground max-w-lg animate-fade-in animate-delay-200">
                 Design from instinct,{" "}
-                <span className="italic font-serif tracking-wide">
+                <span className="font-regular tracking-wide">
                   refined by purpose.
                 </span>
               </p>
@@ -94,8 +97,8 @@ export const Hero = () => {
             {/* CTA */}
 
             <div className="flex flex-wrap gap-4 animate-fade-in animate-delay-300">
-              <Button size="sm" className=" pointer-events-none">
-                <Globe2Icon className="w-5 h-5" /> PHILIPPINES
+              <Button size="sm" className=" pointer-events-none text-background">
+                <Globe2Icon className="w-5 h-5 text-background" /> PHILIPPINES
               </Button>
               <button className="relative bg-transparent border border-primary transition-all duration-500 px-3 py-2 text-sm rounded-lg overflow-visible animated-border">
                 <a href="/CV_JMBURGOS.pdf" target="_blank">
@@ -145,7 +148,7 @@ export const Hero = () => {
                   className="relative z-10 w-full aspect-square object-cover rounded-lg "
                 />
 
-                {/* Video */}
+          
                 <video
                   src="/creatives/pfp1.mp4"
                   onContextMenu={(e) => e.preventDefault()}
@@ -160,17 +163,17 @@ export const Hero = () => {
                   onMouseLeave={(e) => e.currentTarget.pause()}
                 />
 
-                {/* BADGE */}
-                <div className="z-10 absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float">
+        
+                <div className="z-10 absolute -top-8 -right-8 glass rounded-xl px-4 py-3 animate-float">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm font-medium font-mono uppercase">
+                    <span className="text-sm font-regular uppercase">
                       Available for Work
                     </span>
                   </div>
                 </div>
 
-                {/*  */}
+             
               </div>
             </div>
           </div>
@@ -179,8 +182,8 @@ export const Hero = () => {
         {/* SKILLs */}
 
         <div className=" mt-20 animate-fade-in animate-delay-600">
-          <p className="uppercase text-sm text-muted-foreground mb-6 text-center">
-            Technologies I work with
+          <p className="uppercase font-regular text-sm text-muted-foreground mb-6 text-center">
+            Tech Skills
           </p>
           <div className="relative overflow-hidden">
             <div
@@ -194,7 +197,7 @@ export const Hero = () => {
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
                 <div key={idx} className="shrink-0 px-6 py-6 ">
-                  <span className="uppercase text-xl rounded-lg font-semibold text-muted-foreground/50 hover:text-muted-foreground">
+                  <span className="uppercase text-xl rounded-lg font-regular text-muted-foreground/50 hover:text-muted-foreground">
                     {skill}
                   </span>
                 </div>
@@ -209,10 +212,10 @@ export const Hero = () => {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animate-delay-800">
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <ArrowBigDownDash className="w-6 h-6 animate-bounce" />
+          <span className="text-xs uppercase font-regular tracking-wider">Scroll</span>
+          <ChevronDown className="w-6 h-6 animate-bounce" />
         </a>
       </div>
     </section>

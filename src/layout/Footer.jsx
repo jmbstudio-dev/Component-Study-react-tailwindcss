@@ -21,27 +21,15 @@ export const Footer = () => {
       <nav className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
-          <div className="text-center md:text-left">
+          <div className="flex gap-2 md:text-left">
             <a href="#" className="text-xl font-bold tracking-tighter">
               JM<span className="text-primary">B</span>
             </a>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-muted-foreground m-auto">
               © {currentYear} John Melvin Burgos
             </p>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap justify-center gap-6">
-            {footerLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">

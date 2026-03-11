@@ -10,8 +10,8 @@ const experiences = [
   },
   {
     period: "2022 — 2025",
-    role: "Freelance Graphic Designer",
-    company: "Self-Employed",
+    role: "Graphic Designer",
+    company: "Freelance",
     description:
       "Delivered custom digital character illustrations, logo designs, and social media info-cards. Discussed project goals, themes, and styles with clients",
     technologies: [
@@ -58,24 +58,74 @@ export const Experience = () => {
         {/* HEADER TXT*/}
 
         <div className="text-center mx-auto max-w-3xl mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Path & Progress
+          <span className="text-secondary-foreground text-2xl font-regular tracking-wider uppercase animate-fade-in animate-delay-100">
+            Path & <span className="text-foreground">Progress</span>
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-foreground mt-4 mb-6 animate-fade-in animate-delay-100">
+          {/* <h2 className="text-4xl md:text-5xl font-bold text-secondary-foreground mt-4 mb-6 animate-fade-in animate-delay-100">
             Academic Foundations to{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-regular italic font-normal text-white">
               Practical Experience.
             </span>
-          </h2>
+          </h2> */}
           <p className="text-muted-foreground animate-fade-in animate-delay-200">
             A timeline of my growth through education, hands-on experience, and
             continuous learning.
           </p>
         </div>
+        {/* TIME1 */}
 
-        {/* TIME */}
-        <div className="relative max-w-7xl mx-auto">
-          {/* ITEMS 1 */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical Line */}
+          <div className="absolute left-1.5 top-1 bottom-0 w-0.5 bg-linear-to-b from-primary/70 via-primary/30 to-transparent animate-fade-in" />
+
+          <div className="space-y-8">
+            {experiences.map((exp, idx) => (
+              <div
+                key={idx}
+                className="relative animate-fade-in hover:text-primary "
+                style={{ animationDelay: `${(idx + 1) * 150}ms` }}
+              >
+                {/* Dot */}
+                <div className="absolute left-0 top-0 w-3 h-3 bg-primary rounded-full ring-4 ring-background z-10">
+                  {exp.current && (
+                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
+                  )}
+                </div>
+
+                {/* Card */}
+                <div className="pl-10">
+                  <div className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500">
+                    <span className="text-sm text-primary font-medium">
+                      {exp.period}
+                    </span>
+
+                    <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
+
+                    <p className="text-muted-foreground">{exp.company}</p>
+
+                    <p className="text-sm text-muted-foreground mt-4">
+                      {exp.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {exp.technologies.map((tech, techIdx) => (
+                        <span
+                          key={techIdx}
+                          className="px-3 py-1 bg-surface text-xs rounded-full text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* TIME2 */}
+        {/* <div className="relative max-w-7xl mx-auto">
           <div
             className="absolute md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b
            from-primary/70 via-primary/30 to-transparent animate-fade-in"
@@ -130,49 +180,7 @@ export const Experience = () => {
               </div>
             ))}
           </div>
-
-          {/* ITEMS 2 */}
-          {/* <div className=" gap-12 grid md:grid-cols-1 mx-auto max-w-3xl">
-            {experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                className="relative animate-fade-in"
-                style={{ animationDelay: `${(idx + 1) * 150}ms` }}
-              >
-               
-           
-                <div className=" ">
-                  <div
-                    className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 
-                    transition-all duration-500"
-                  >
-                    <span className="text-sm text-primary font-medium">
-                      {exp.period}
-                    </span>
-                    <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
-                    <p className="text-muted-foreground">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground mt-4">
-                      {exp.description}
-                    </p>
-
-                    <div
-                      className="flex flex-wrap gap-2 mt-4"
-                    >
-                      {exp.technologies.map((tech, techIdx) => (
-                        <span
-                          key={techIdx}
-                          className="px-3 py-1 bg-surface text-xs rounded-full text-muted-foreground"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div> */}
-        </div>
+        </div> */}
       </div>
     </section>
   );

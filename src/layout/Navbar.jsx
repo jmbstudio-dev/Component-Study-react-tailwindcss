@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
+  { href: "#home", label: "/Home" },
+  { href: "#about", label: "/About" },
+  { href: "#projects", label: "/Projects" },
+  { href: "#experience", label: "/Experience" },
   
 ];
 
@@ -50,6 +50,8 @@ export const Navbar = () => {
                 {link.label}
               </a>
             ))}
+
+            
           </div>
         </div>
 
