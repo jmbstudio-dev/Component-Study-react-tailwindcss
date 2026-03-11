@@ -3,7 +3,7 @@ import { CodeIcon, Frame, Database, PaletteIcon} from "lucide-react";
 const skills = [
   {
     icon: Frame,
-    title: "Frontend Fundamentals",
+    title: "Frontend Development",
     description: "Building responsive and interactive ui.",
     tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind css"],
   },
@@ -11,19 +11,19 @@ const skills = [
     icon: CodeIcon,
     title: "Backend Architecture",
     description: "Developing server-side logic and APIs.",
-    tech: ["Node.js", "Python", "C++"],
+    tech: ["Node.js", "Python", "C++", "Express.js", "REST API"],
   },
   {
     icon: Database,
     title: "Databases & Cloud",
     description: "Managing and storing application data.",
-    tech: ["SQL", "MongoDB", "Firebase"],
+    tech: ["SQL", "MongoDB", "Firebase", "Vercel", "Git"],
   },
   {
     icon: PaletteIcon,
-    title: "Design & Multimedia",
+    title: "Multimedia & Other tools",
     description: "Creating visuals and UI/UX concepts.",
-    tech: ["Figma", "Adobe Suite", "ClipStudio Paint"],
+    tech: ["Figma", "Adobe Suite", "ClipStudio Paint", "GitHub"],
   },
 ];
 

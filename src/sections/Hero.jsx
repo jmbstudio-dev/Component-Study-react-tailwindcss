@@ -183,7 +183,7 @@ export const Hero = () => {
 
         <div className=" mt-20 animate-fade-in animate-delay-600">
           <p className="uppercase font-regular text-sm text-muted-foreground mb-6 text-center">
-            Tech Skills
+            Technical Skills
           </p>
           <div className="relative overflow-hidden">
             <div
