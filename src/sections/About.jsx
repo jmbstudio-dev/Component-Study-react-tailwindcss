@@ -1,4 +1,4 @@
-import { CodeIcon, Frame, Database, PaletteIcon } from "lucide-react";
+import { CodeIcon, Frame, Database, PaletteIcon} from "lucide-react";
 
 const skills = [
   {

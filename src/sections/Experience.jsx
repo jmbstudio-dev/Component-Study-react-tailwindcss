@@ -54,7 +54,7 @@ export const Experience = () => {
     <section id="experience" className="py-32 relative overflow-hidden">
       {/* BACKGROUND */}
       <div className="absolute top-25 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container max-w-6xl mx-auto px-8 relative z-10">
         {/* HEADER TXT*/}
 
         <div className="text-center mx-auto max-w-3xl mb-16">
@@ -74,7 +74,7 @@ export const Experience = () => {
         </div>
         {/* TIME1 */}
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative">
           {/* Vertical Line */}
           <div className="absolute left-1.5 top-1 bottom-0 w-0.5 bg-linear-to-b from-primary/70 via-primary/30 to-transparent animate-fade-in" />
 
@@ -99,7 +99,7 @@ export const Experience = () => {
                       {exp.period}
                     </span>
 
-                    <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
+                    <h3 className="text-xl font-regular mt-2">{exp.role}</h3>
 
                     <p className="text-muted-foreground">{exp.company}</p>
 
@@ -125,7 +125,7 @@ export const Experience = () => {
         </div>
 
         {/* TIME2 */}
-        {/* <div className="relative max-w-7xl mx-auto">
+        {/* <div className="relative mx-auto">
           <div
             className="absolute md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b
            from-primary/70 via-primary/30 to-transparent animate-fade-in"

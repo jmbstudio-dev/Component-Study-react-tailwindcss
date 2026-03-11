@@ -112,7 +112,7 @@ export const Projects = () => {
         </div>
 
         {/* PROJECT GRID */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 mx-auto">
           {projects.map((project, idx) => (
             <div
               key={idx}
