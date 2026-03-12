@@ -5,10 +5,42 @@ import {
   ConeIcon,
   Github,
   Link2,
+  GlobeIcon,
+  Locate,
+  LocateIcon,
+  PaintbrushVerticalIcon,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import MyLeafletMap from "../components/Map";
 
-const bgcolors = ["#121416", "#24273A", "#EFF1F5"];
+const themes = {
+  dark: {
+    "--color-background": "#121416",
+    "--color-card": "#141a1f",
+    "--color-border": "#242b32",
+    "--color-surface": "#1a2329",
+    "--color-foreground": "#eff1f5",
+    "--color-muted-foreground": "#777e8f",
+  },
+
+  soft: {
+    "--color-background": "#24273A",
+    "--color-card": "#2e3148",
+    "--color-border": "#3a3f5c",
+    "--color-surface": "#313552",
+    "--color-foreground": "#e6e9ef",
+    "--color-muted-foreground": "#9aa0b4",
+  },
+
+  light: {
+    "--color-background": "#EFF1F5",
+    "--color-card": "#ffffff",
+    "--color-border": "#242b32",
+    "--color-surface": "#f5f6fa",
+    "--color-foreground": "#1f2328",
+    "--color-muted-foreground": "#5c6270",
+  },
+};
 
 const colors = [
   "#9cc8ff",
@@ -75,13 +107,22 @@ export const Test = () => {
     document.documentElement.style.setProperty("--color-primary", color);
   };
 
-  
+  const [activeTheme, setActiveTheme] = useState("dark");
+  const changeTheme = (themeName) => {
+    setActiveTheme(themeName);
 
+    const theme = themes[themeName];
+
+    Object.entries(theme).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+  };
+
+  //PROJECT IMAGE SLIDE
   const [currentImages, setCurrentImages] = useState(projects.map(() => 0));
   const [isHovered, setIsHovered] = useState(projects.map(() => false));
   const autoSlideTimer = useRef(null);
 
-  //PROJECT IMAGE SLIDE
   useEffect(() => {
     const startAutoSlide = () => {
       if (autoSlideTimer.current) clearInterval(autoSlideTimer.current);
@@ -149,47 +190,63 @@ export const Test = () => {
                 <p>{/*  */}</p>
               </div>
             </div>
-
-            {/* THEME */}
+            {/* inspired by jasoncameron */}
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in animate-delay-200">
-              <div className="glass p-6 rounded-lg min-h-50">
-                <div className="flex justify-center gap-2">
-                  <ConeIcon /> WIP SECTIONS
-                </div>
-              </div>
-
+              {/* MAP */}
               <div className="glass space-y-4 p-6 rounded-lg min-h-50">
                 <div>
                   <h3 className="text-sm uppercase mb-2 flex items-center gap-2">
-                    <Paintbrush className="w-5 h-5" />
+                    <LocateIcon /> Based in
+                  </h3>
+                </div>
+
+                <div>
+                  <div>
+                    <MyLeafletMap />
+                  </div>
+                </div>
+              </div>
+
+              {/* THEME */}
+              <div className="glass space-y-4 p-6 rounded-lg min-h-50">
+                <div>
+                  <h3 className="text-sm uppercase mb-2 flex items-center gap-2">
+                    <PaintbrushVerticalIcon className="w-5 h-5" />
                     Theme
                   </h3>
                 </div>
-                <div className="glass rounded-lg flex justify-between items-center ">
-                  <button className="border border-transparent  p-2 rounded-lg hover:border-primary transition-all">
-                    Dark
-                  </button >
-                  <button className="border border-transparent  p-2 rounded-lg hover:border-primary transition-all">
-                    Soft
-                  </button >
-                  <button className="border border-transparent  p-2 rounded-lg hover:border-primary transition-all">
-                    Light
-                  </button>
-                </div>
+                <div className=" grid gap-4">
+                  <div className=" rounded-lg flex justify-between mx-auto space-x-4 p-2">
+                    {["dark", "soft", "light"].map((theme) => (
+                      <button
+                        key={theme}
+                        onClick={() => changeTheme(theme)}
+                        className={`pb-1 capitalize transition-all
+                        ${
+                          activeTheme === theme
+                            ? "border-b-2 border-primary text-primary"
+                            : "border-b-2 border-transparent text-muted-foreground"
+                        }`}
+                      >
+                        {theme}
+                      </button>
+                    ))}
+                  </div>
 
-                <div className="grid grid-cols-6 mx-auto">
-                  {colors.map((color, idx) => (
-                    <button
-                      key={idx}
-                      className={`w-8 h-8 rounded-sm border-2 ${
-                        activeColor === color
-                          ? "border-primary"
-                          : "border-background"
-                      }`}
-                      style={{ background: color }}
-                      onClick={() => changePrimaryColor(color)}
-                    />
-                  ))}
+                  <div className="grid grid-cols-6 mx-auto">
+                    {colors.map((color, idx) => (
+                      <button
+                        key={idx}
+                        className={`w-8 h-8 rounded-sm border-2 ${
+                          activeColor === color
+                            ? "border-foreground"
+                            : "border-background"
+                        }`}
+                        style={{ background: color }}
+                        onClick={() => changePrimaryColor(color)}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
