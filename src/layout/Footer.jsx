@@ -17,12 +17,12 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border">
+    <footer className="py-12 border-t border-primary/10">
       <nav className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="flex gap-2 md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tighter">
+            <a href="https://jmbstudio.dev/" className="text-xl font-bold tracking-tighter" target="_blank">
               JM<span className="text-primary">B</span>
             </a>
             <p className="text-sm text-muted-foreground m-auto">

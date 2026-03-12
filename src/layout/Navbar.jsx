@@ -3,11 +3,8 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#home", label: "/Home" },
-  { href: "#about", label: "/About" },
-  { href: "#projects", label: "/Projects" },
-  { href: "#experience", label: "/Experience" },
-  
+  { href: "#test", label: "/Home" },
+  { href: "#", label: "/About" },
 ];
 
 export const Navbar = () => {
@@ -18,7 +15,6 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -29,15 +25,7 @@ export const Navbar = () => {
       className={`fixed top-0 left-0 right-0 transition-all duration-300 
         ${isScrolled ? "glass-strong py-2" : "bg-transparent py-5"}  z-50`}
     >
-      <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className="text-xl font-bold tracking-tighter hover:text-primary"
-        >
-          JM
-          <span className="text-primary">B</span>
-        </a>
-
+      <nav className="container mx-auto px-6 flex items-center justify-end">
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-1">
           <div className="glass rounded-lg px-2 py-1 flex items-center gap-1">
@@ -51,13 +39,14 @@ export const Navbar = () => {
               </a>
             ))}
 
-            
-          </div>
-        </div>
+            {/* SEPARATE BUTTON N/ in ARRAY */}
+            <div className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-surface">
+              <a href="#">
+                <button size="sm">/Contacts</button>
+              </a>
 
-        {/* CTA */}
-        <div className="hidden md:block">
-          <a  href= "#contacts"><Button size="sm">Contact Me</Button></a>
+            </div>
+          </div>
         </div>
 
         {/* MOBILE */}
@@ -70,7 +59,6 @@ export const Navbar = () => {
       </nav>
 
       {/* MOBILE MENU */}
-
       {isMobileMenuOpen && (
         <div className="md:hidden glass-strong animate-fade-in rounded-lg">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
