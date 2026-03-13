@@ -1,5 +1,5 @@
 import { Navbar } from "@/layout/Navbar";
-import { Test } from "@/sections/Test";
+import { Home } from "@/sections/Home";
 import { Footer } from "@/layout/Footer";
 
 
@@ -8,7 +8,7 @@ function App() {
     <div className="min-h-screen overflow-x-hidden ">
       <Navbar />
       <main>
-        <Test />
+        <Home />
       </main>
       <Footer />
     </div>
