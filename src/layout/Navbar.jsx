@@ -3,8 +3,9 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#test", label: "/Home" },
-  { href: "#", label: "/About" },
+  { href: "#", label: "/Home" },
+  { href: "#", label: "/ii" },
+  { href: "#", label: "/iii" },
 ];
 
 export const Navbar = () => {
@@ -40,12 +41,11 @@ export const Navbar = () => {
             ))}
 
             {/* SEPARATE BUTTON N/ in ARRAY */}
-            <div className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-surface">
+            {/* <div className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-surface">
               <a href="#">
                 <button size="sm">/Contacts</button>
               </a>
-
-            </div>
+            </div> */}
           </div>
         </div>
 

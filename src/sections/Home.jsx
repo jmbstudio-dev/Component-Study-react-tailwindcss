@@ -140,9 +140,7 @@ export const Home = () => {
                 </div>
 
                 <div>
-                  <div>
-                    <MyLeafletMap />
-                  </div>
+                  <MyLeafletMap />
                 </div>
               </div>
 
