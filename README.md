@@ -27,7 +27,7 @@ This project currently uses:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/repository-name.git
+git clone https://github.com/jmbstudio-dev/Component-Study-react-tailwindcss.git
 ```
 
 Navigate to the project folder:
