@@ -103,6 +103,14 @@ export const Home = () => {
           ))}
         </div>
       </div>
+
+      <div className="pt-12 container flex justify-center mx-auto px-6">
+        <div>
+          <p className="text-sm text-muted-foreground m-auto">
+            Thankyou for checking this out!
+          </p>
+        </div>
+      </div>
     </section>
   );
 };
