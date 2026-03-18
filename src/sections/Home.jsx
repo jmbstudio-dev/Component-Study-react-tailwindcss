@@ -3,6 +3,7 @@ import {
   PaintbrushVerticalIcon,
   Clock,
   Hash,
+  Grid2x2,
   Images,
   MousePointerClick,
   Zap,
@@ -20,7 +21,7 @@ import { ImageCarousel } from "../components/ImageCarousel";
 import { ButtonCard } from "../components/ButtonCard";
 import { ReactionGame } from "../components/ReactionGame";
 import { Wordle } from "../components/Wordle";
-
+import { TicTacToe } from "../components/TicTacToe";
 const MyLeafletMap = lazy(() => import("../components/Map"));
 
 const cards = [
@@ -42,6 +43,7 @@ const cards = [
   { icon: MousePointerClick, title: "Button", component: <ButtonCard /> },
   { icon: Zap, title: "Reaction", component: <ReactionGame /> },
   { icon: Type, title: "Wordle", component: <Wordle /> },
+  { icon: Grid2x2, title: "Tic Tac Toe", component: <TicTacToe /> },
 ];
 
 export const Home = () => {
