@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 const themes = {
   dark: {
     "--color-background": "#121416",
@@ -8,7 +9,6 @@ const themes = {
     "--color-foreground": "#eff1f5",
     "--color-muted-foreground": "#777e8f",
   },
-
   soft: {
     "--color-background": "#24273A",
     "--color-card": "#2e3148",
@@ -17,7 +17,6 @@ const themes = {
     "--color-foreground": "#e6e9ef",
     "--color-muted-foreground": "#9aa0b4",
   },
-
   light: {
     "--color-background": "#EFF1F5",
     "--color-card": "#ffffff",
@@ -29,52 +28,63 @@ const themes = {
 };
 
 const colors = [
-  "#9cc8ff",
-  "#B4BEFE",
-  "#73B6C5",
-  "#62A5C6",
-  "#7CBAB3",
-  "#8ABB8A",
-  "#CDBA95",
-  "#CAB9B9",
-  "#C7AAAD",
-  "#CAA1C2",
-  "#A88ACE",
-  "#C8758F",
+  "#8bbfff",
+  "#abb3fe",
+  "#67a9bb",
+  "#5b9fc1",
+  "#72b1a7",
+  "#87c187",
+  "#d0b991",
+  "#cbb1b1",
+  "#c89aa1",
+  "#cb9fc1",
+  "#ad8be0",
+  "#d17a91",
 ];
 
 export const Theme = () => {
-  // THEME
-  const [activeColor, setActiveColor] = useState(colors[0]);
+  const [activeColor, setActiveColor] = useState(
+    () => localStorage.getItem("primaryColor") || colors[0]
+  );
+  const [activeTheme, setActiveTheme] = useState(
+    () => localStorage.getItem("theme") || "dark"
+  );
+
   const changePrimaryColor = (color) => {
     setActiveColor(color);
+    localStorage.setItem("primaryColor", color);
     document.documentElement.style.setProperty("--color-primary", color);
   };
 
-  const [activeTheme, setActiveTheme] = useState("dark");
   const changeTheme = (themeName) => {
     setActiveTheme(themeName);
-
+    localStorage.setItem("theme", themeName);
     const theme = themes[themeName];
-
     Object.entries(theme).forEach(([key, value]) => {
       document.documentElement.style.setProperty(key, value);
     });
   };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    const savedColor = localStorage.getItem("primaryColor") || colors[0];
+    changeTheme(savedTheme);
+    changePrimaryColor(savedColor);
+  }, []);
+
   return (
     <div className="grid gap-4">
       <div className="glass rounded-lg flex justify-between items-center">
-        <div className=" rounded-lg flex justify-between mx-auto space-x-4 p-2">
+        <div className="rounded-lg flex justify-between mx-auto space-x-4 p-2">
           {["dark", "soft", "light"].map((theme) => (
             <button
               key={theme}
               onClick={() => changeTheme(theme)}
-              className={`pb-1 capitalize transition-all
-                        ${
-                          activeTheme === theme
-                            ? "border-b-2 border-primary text-primary"
-                            : "border-b-2 border-transparent text-muted-foreground"
-                        }`}
+              className={`pb-1 capitalize transition-all ${
+                activeTheme === theme
+                  ? "border-b-2 border-primary text-primary"
+                  : "border-b-2 border-transparent text-muted-foreground"
+              }`}
             >
               {theme}
             </button>
