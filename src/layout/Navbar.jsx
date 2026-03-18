@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#", label: "/Home" },
-  { href: "#", label: "/ii" },
-  { href: "#", label: "/iii" },
 ];
 
 export const Navbar = () => {

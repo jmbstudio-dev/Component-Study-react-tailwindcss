@@ -13,6 +13,23 @@ import {
 import { useState, useEffect, useRef } from "react";
 import MyLeafletMap from "../components/Map";
 import { Theme } from "../components/Theme";
+import { Clock, ListCollapse, BarChart2, Hash } from "lucide-react";
+import { ClockTimer } from "../components/ClockTimer";
+import { Accordion } from "../components/Accordion";
+import { ProgressBar } from "../components/ProgressBar";
+import { AnimatedCounter } from "../components/AnimatedCounter";
+
+const demoCards = [
+  { icon: Clock, title: "Live Clock", component: <ClockTimer /> },
+  { icon: ListCollapse, title: "Accordion", component: <Accordion /> },
+  { icon: BarChart2, title: "Skill Bars", component: <ProgressBar /> },
+  { icon: Hash, title: "Counter", component: <AnimatedCounter /> },
+];
+
+const widgetCards = [
+  { icon: LocateIcon, title: "Location", component: <MyLeafletMap /> },
+  { icon: PaintbrushVerticalIcon, title: "Theme", component: <Theme /> },
+];
 
 const infocard = [
   {
@@ -107,7 +124,7 @@ export const Home = () => {
           {/* LEFT */}
           {/* SECTION1 */}
           <div className="relative space-y-8">
-            <div className="glass rounded-lg p-6">
+            <div className="glass rounded-lg p-6 animate-fade-in animate-delay-100">
               <div className=" animate-fade-in mb-4">
                 <span className="text-primary text-2xl font-regular tracking-wider uppercase animate-fade-in ">
                   Simple{" "}
@@ -115,7 +132,7 @@ export const Home = () => {
                 </span>
               </div>
 
-              <div className="space-y-4 text-muted-foreground animate-fade-in animate-delay-200">
+              <div className="space-y-4 text-muted-foreground ">
                 <p>
                   Hi!, I am <span className="text-primary">Melvin</span>. Thank
                   you for checking out this repository! This is a space where I
@@ -131,32 +148,17 @@ export const Home = () => {
             </div>
             {/* inspired by jasoncameron */}
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in animate-delay-200">
-              {/* MAP */}
-              <div className="glass space-y-4 p-6 rounded-lg min-h-50">
-                <div>
+              {widgetCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="glass space-y-4 p-6 rounded-lg min-h-50"
+                >
                   <h3 className="text-sm uppercase mb-2 flex items-center gap-2">
-                    <LocateIcon /> Location
+                    <card.icon className="w-5 h-5" /> {card.title}
                   </h3>
+                  {card.component}
                 </div>
-
-                <div>
-                  <MyLeafletMap />
-                </div>
-              </div>
-
-              {/* THEME */}
-              <div className="glass space-y-4 p-6 rounded-lg min-h-50">
-                <div>
-                  <h3 className="text-sm uppercase mb-2 flex items-center gap-2">
-                    <PaintbrushVerticalIcon className="w-5 h-5" />
-                    Theme
-                  </h3>
-                </div>
-
-                <div>
-                  <Theme />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -295,6 +297,23 @@ export const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* COMPONENTS DEMO */}
+        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in animate-delay-200">
+          {demoCards.map((card, idx) => (
+            <div
+              key={idx}
+              className="glass p-6 rounded-lg flex flex-col gap-4"
+              style={{ animationDelay: `${(idx + 1) * 100}ms` }}
+            >
+              <h3 className="text-sm uppercase flex items-center gap-2 text-muted-foreground">
+                <card.icon className="w-4 h-4 text-primary" />
+                {card.title}
+              </h3>
+              {card.component}
+            </div>
+          ))}
         </div>
       </div>
     </section>
