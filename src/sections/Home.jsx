@@ -22,6 +22,13 @@ import { ButtonCard } from "../components/ButtonCard";
 import { ReactionGame } from "../components/ReactionGame";
 import { Wordle } from "../components/Wordle";
 import { TicTacToe } from "../components/TicTacToe";
+import { Smile, Music, FileText, LayoutList, CalendarDays } from "lucide-react";
+import { EmojiMood } from "../components/EmojiMood";
+import { AmbientSound } from "../components/AmbientSound";
+import { MarkdownPreviewer } from "../components/MarkdownPreviewer";
+import { DragDrop } from "../components/DragDrop";
+import { Calendar } from "../components/Calendar";
+
 const MyLeafletMap = lazy(() => import("../components/Map"));
 
 const cards = [
@@ -29,14 +36,18 @@ const cards = [
     icon: LocateIcon,
     title: "Location",
     component: (
-      <Suspense fallback={<div className="text-xs text-muted-foreground">Loading map...</div>}>
+      <Suspense
+        fallback={
+          <div className="text-xs text-muted-foreground">Loading map...</div>
+        }
+      >
         <MyLeafletMap />
       </Suspense>
     ),
   },
   { icon: PaintbrushVerticalIcon, title: "Theme", component: <Theme /> },
   { icon: Clock, title: "Live Clock", component: <ClockTimer /> },
-  { icon: Hash, title: "Counter", component: <AnimatedCounter /> },
+  { icon: Hash, title: "Counter Animation", component: <AnimatedCounter /> },
   { icon: AlignJustify, title: "Accordion", component: <Accordion /> },
   { icon: BarChart2, title: "Skill Bars", component: <ProgressBar /> },
   { icon: Images, title: "Carousel", component: <ImageCarousel /> },
@@ -44,13 +55,17 @@ const cards = [
   { icon: Zap, title: "Reaction", component: <ReactionGame /> },
   { icon: Type, title: "Wordle", component: <Wordle /> },
   { icon: Grid2x2, title: "Tic Tac Toe", component: <TicTacToe /> },
+  { icon: Smile, title: "Mood", component: <EmojiMood /> },
+  { icon: Music, title: "Ambient", component: <AmbientSound /> },
+  { icon: FileText, title: "Markdown", component: <MarkdownPreviewer /> },
+  { icon: LayoutList, title: "Drag & Drop", component: <DragDrop /> },
+  { icon: CalendarDays, title: "Calendar", component: <Calendar /> },
 ];
 
 export const Home = () => {
   return (
     <section id="home" className="py-32 relative overflow-hidden">
       <div className="container max-w-6xl mx-auto px-8 relative z-10">
-
         {/* INTRO */}
         <div className="glass rounded-lg p-6 mb-8 animate-fade-in animate-delay-100">
           <div className="mb-4">
@@ -83,13 +98,10 @@ export const Home = () => {
                 <card.icon className="w-4 h-4 text-primary" />
                 {card.title}
               </h3>
-              <div className="flex-1">
-                {card.component}
-              </div>
+              <div className="flex-1">{card.component}</div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
