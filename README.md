@@ -1,6 +1,4 @@
 # Component Playground
-
-Hi! I'm **Melvin** 👋  
 Thank you for checking out this repository!
 
 This project is a space where I experiment with **small, reusable browser components** — from interactive tools to mini games. The goal is to explore different concepts, improve my development workflow, and gradually build a collection of useful components that can be reused in larger projects.
