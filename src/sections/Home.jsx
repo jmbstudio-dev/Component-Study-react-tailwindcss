@@ -11,6 +11,7 @@ import {
   AlignJustify,
   BarChart2,
 } from "lucide-react";
+
 import { lazy, Suspense } from "react";
 import { Theme } from "../components/Theme";
 import { ClockTimer } from "../components/ClockTimer";
@@ -75,14 +76,13 @@ export const Home = () => {
             </span>
           </div>
           <p className="text-muted-foreground">
-            Hi!, I am <span className="text-primary">Melvin</span>. Thank you
-            for checking out this repository! This is a space where I experiment
-            with small, reusable components that can be added to the browser.
-            Here I test ideas like a theme picker, interactive maps, and other
-            simple UI features. The goal is to explore different concepts,
-            improve my development workflow, and gradually build a collection of
-            useful components. More experiments and additions will be coming in
-            the future.
+            Hello! Thank you for checking out this repository! This is a space where
+            I experiment with small, reusable components that can be added to
+            the browser. Here I test ideas like a theme picker, interactive
+            maps, and other simple UI features. The goal is to explore different
+            concepts, improve my development workflow, and gradually build a
+            collection of useful components. More experiments and additions will
+            be coming in the future.
           </p>
         </div>
 
